@@ -1,4 +1,4 @@
-const Cell = ({id, cell, setCells, go}) => {
+const Cell = ({id, cell, setCells, go, setGo}) => {
 
     const handleClick = (event) => {
         const taken = event.target.firstChild.classList.contains("circle") || 
@@ -7,9 +7,11 @@ const Cell = ({id, cell, setCells, go}) => {
         if (!taken){
             if (go === "circle"){
                 event.target.firstChild.classList.add("circle")
+                setGo("cross")
             }
             if (go === "cross"){
                 event.target.firstChild.classList.add("cross")
+                setGo("circle")
             }
         }
     }
